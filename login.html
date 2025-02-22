@@ -1,100 +1,156 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"><!-- page3 -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: #f0f4f8; /* Light background for contrast */
-        }
-        
-        .login-container {
-            background: linear-gradient(135deg, #007bff, #0056b3); /* Blue gradient */
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: 350px;
-            text-align: center;
-            color: white;
-        }
-        
-        .login-container h2 {
-            margin-bottom: 20px;
-        }
-        
-        .input-group {
-            margin-bottom: 15px;
-            text-align: left;
-        }
-        
-        .input-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        
-        .input-group input {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-        }
-        
-        .remember-me {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-        
-        .login-btn {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            background: #00408a;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        
-        .login-btn:hover {
-            background: #002f6c;
-        }
-    </style>
+    <title>Login - Abizz</title>
+   <style>
+    /* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Page Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('bg-image.jpg') no-repeat center center/cover;
+}
+
+/* Login Box */
+.login-container {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    color: white;
+}
+
+/* Brand Title */
+.brand-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Form Fields */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Remember Me */
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Button Styling */
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #00408a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button Hover Effect */
+.login-btn:hover {
+    background: #002f6c;
+}
+
+/* Button Effect on Mouse Move */
+.login-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.login-btn::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: 0.4s;
+}
+
+.login-btn:hover::before {
+    left: 100%;
+}
+
+   </style>
 </head>
+
 <body>
     <div class="login-container">
+        <h1 class="brand-title">CODE TITANS</h1>
         <h2>Login</h2>
-        <form>
+        <form id="login-form">
             <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Enter your username" required>
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter your email" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Enter your password" required>
             </div>
-            <div class="remember-me">
-                <input type="checkbox" id="remember">
-                <label for="remember">Remember Me</label>
-            </div>
-            <button type="submit" class="login-btn">Login</button>
+            <button type="submit" class="login-btn" id="login-btn">Login</button>
         </form>
     </div>
+    <script src="script.js"></script>
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let emailValid = email.includes("@");
+            let passwordValid = /[a-z]/.test(password);
+
+            if (!emailValid) {
+                alert("Email must contain '@'");
+                return;
+            }
+
+            if (!passwordValid) {
+                alert("Password must contain at least one lowercase letter");
+                return;
+            }
+
+            window.location.href = "index.html";
+        });
+    </script>
 </body>
+
 </html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: background 0.5s, color 0.5s;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Background Image */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('background.jpg') no-repeat center center/cover;
+            filter: brightness(0.4);
+            z-index: -1;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 68, 102, 0.8);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* Glowing Title */
+        h1 {
+            font-size: 36px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(0, 210, 255, 0.7), 0 0 20px rgba(0, 210, 255, 0.5); }
+            to { text-shadow: 0 0 20px rgba(0, 210, 255, 1), 0 0 30px rgba(0, 210, 255, 0.8); }
+        }
+
+        /* Navigation */
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            transition: all 0.3s;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Announcements Section */
+        .content {
+            margin-top: 120px;
+            padding: 40px;
+            text-align: center;
+            width: 80%;
+            max-width: 900px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 255, 255, 0.3);
+            color: white;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Announcement Cards */
+        .announcement {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 10px;
+            text-align: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .announcement:hover {
+            transform: scale(1.02);
+        }
+
+        .announcement h3 {
+            color: #00d2ff;
+        }
+
+        .announcement p {
+            font-size: 16px;
+            color: #e0e0e0;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            max-width: 500px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        /* Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #00d2ff;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-btn:hover {
+            background: #3a7bd5;
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 68, 102, 0.8);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Announcements</h1>
+    <nav>
+        <a href="index.html">Home</a> | 
+        <a href="timetable.html">Timetable</a> | 
+        <a href="materials.html">Study Materials</a> | 
+        <a href="announcements.html">Announcements</a> | 
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="content">
+    <h2>Latest Updates</h2>
+    <p>Stay informed about important class notices.</p>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search announcements..." id="searchInput" onkeyup="searchAnnouncements()">
+    </div>
+
+    <!-- Announcement List -->
+    <div class="announcement">
+        <h3>Exam Schedule Released</h3>
+        <p>Check the timetable for updated exam dates.</p>
+    </div>
+
+    <div class="announcement">
+        <h3>New assingment Added</h3>
+        <p>details will be shown here soon!</p>
+    </div>
+
+    <div class="announcement">
+        <h3>Guest Speaker </h3>
+        <p>all to be at the premises.</p>
+    </div>
+</section>
+
+<!-- Floating Button -->
+<button class="floating-btn" onclick="alert('Feature Coming Soon!')">+</button>
+
+<footer>
+    <p>&copy; 2025 BNP Computer Science Class</p>
+</footer>
+
+<script>
+    // Search Announcements
+    function searchAnnouncements() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let announcements = document.querySelectorAll(".announcement");
+
+        announcements.forEach((announcement) => {
+            let text = announcement.innerText.toLowerCase();
+            announcement.style.display = text.includes(input) ? "block" : "none";
+        });
+    }
+</script>
+
+</body>
+</html>

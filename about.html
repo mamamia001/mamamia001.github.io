@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - CODE TITANS</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0a192f;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Lines */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('hexellence.png') repeat;
+            opacity: 0.1;
+            animation: moveLines 10s linear infinite;
+        }
+
+        @keyframes moveLines {
+            from { background-position: 0 0; }
+            to { background-position: 100px 100px; }
+        }
+
+        /* Header */
+        .header {
+            position: absolute;
+            top: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .brand-title {
+            font-size: 42px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.7);
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(0, 210, 255, 0.7), 0 0 20px rgba(0, 210, 255, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(0, 210, 255, 1), 0 0 30px rgba(0, 210, 255, 0.8);
+            }
+        }
+
+        /* About Section */
+        .about-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 255, 255, 0.3);
+            text-align: center;
+            width: 70%;
+            max-width: 700px;
+            z-index: 2;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .about-container h2 {
+            font-size: 30px;
+            background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-container p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #d4d4d4;
+        }
+
+        /* Hover Effect */
+        .about-container:hover {
+            transform: scale(1.02);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Button */
+        .cta-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #00408a;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+        }
+
+        .cta-btn:hover {
+            background: #002f6c;
+            transform: scale(1.05);
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="brand-title">CODE TITANS</h1>
+    </header>
+
+    <section class="about-container">
+        <h2>About Us</h2>
+        <p>CODE TITANS is a dynamic, futuristic platform where tech enthusiasts and coders come together to learn, innovate, and build the future.</p>
+        <p>We focus on empowering students with top-tier study materials, AI-powered tools, and a strong community to grow in the field of technology.</p>
+        <p>Join us as we push the limits of innovation and transform the world through code.</p>
+        <a href="landinpage.html" class="cta-btn">Back to Home</a>
+    </section>
+
+</body>
+</html>
